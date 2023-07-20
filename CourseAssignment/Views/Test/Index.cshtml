@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CourseAssignment.Models.Course>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+   <div class="container">
+       <div class="col-md-12">
+           <div class="row">
+               <p>
+                   @Html.ActionLink("Create New", "Create")
+               </p>
+               <table class="table table-bordered">
+                   <tr>
+                       <th>
+                           @Html.DisplayNameFor(model => model.Title)
+                       </th>
+                       <th>
+                           @Html.DisplayNameFor(model => model.Desc)
+                       </th>
+                       <th>
+                           @Html.DisplayNameFor(model => model.NameofInstructor)
+                       </th>
+                       <th>
+                           @Html.DisplayNameFor(model => model.Capacity)
+                       </th>
+                       <th></th>
+                   </tr>
+
+                   @foreach (var item in Model)
+                   {
+                       <tr>
+                           <td>
+                               @Html.DisplayFor(modelItem => item.Title)
+                           </td>
+                           <td>
+                               @Html.DisplayFor(modelItem => item.Desc)
+                           </td>
+                           <td>
+                               @Html.DisplayFor(modelItem => item.NameofInstructor)
+                           </td>
+                           <td>
+                               @Html.DisplayFor(modelItem => item.Capacity)
+                           </td>
+                           <td>
+                               @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }) |
+                            
+                               @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
+                           </td>
+                       </tr>
+                   }
+
+               </table>
+           </div>
+       </div>
+   </div>
+</body>
+</html>
